@@ -1,5 +1,12 @@
+import Controllers.BookController;
+import Views.ViewConsole;
+import models.Book;
+
 public class App {
     public static void main(String[] args) throws Exception {
+
+        ViewConsole vista = new ViewConsole(); 
+        BookController control =  new BookController();
 
         Book[] books = {
                 new Book("Clean Code", 2008),
@@ -33,6 +40,23 @@ public class App {
                 new Book("Deep Learning", 2016),
                 new Book("The Elements of Statistical Learning", 2001)
         };
+
+        vista.imprimirMensajes("Impresion del Arreglo Original");
+        vista.imprimiArreglo(books);
+        vista.imprimirMensajes("\n\nImpresion del Arreglo Ordenado*********");
+        control.sortByName(books);
+        vista.imprimiArreglo(books);
+        if((control.searchByName(books,"Operating System Concepts")==null)){
+            vista.imprimirMensajes("Persona no encontrada");;
+        }else{
+            vista.imprimirMensajes((control.searchByName(books,"Operating System Concepts")).toString());
+        }
+
+        if((control.searchByName(books,"Python the best book")==null)){
+            vista.imprimirMensajes("Persona no encontrada");;
+        }else{
+            vista.imprimirMensajes((control.searchByName(books,"Python the best book")).toString());
+        }
 
     }
 }
