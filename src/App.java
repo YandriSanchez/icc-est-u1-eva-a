@@ -46,6 +46,7 @@ public class App {
         vista.imprimirMensajes("\n\nImpresion del Arreglo Ordenado*********");
         control.sortByName(books);
         vista.imprimiArreglo(books);
+        vista.imprimirMensajes("\n\n\n");
         if((control.searchByName(books,"Operating System Concepts")==null)){
             vista.imprimirMensajes("Persona no encontrada");;
         }else{
